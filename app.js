@@ -1,7 +1,9 @@
 //exercise 1
 const menuItems=['Tea','Coffee','Sandwich','Cookie']
-
-menuItems.forEach((element) =>{console.log(element)})
+console.log(menuItems[0])
+console.log(menuItems[2])
+console.log(menuItems.length)
+console.log(menuItems[menuItems.length-1])
 /*
 Tea
 Sandwich
@@ -14,6 +16,7 @@ Cookie
 const waitingCustomers = ['Aisha', 'Omar', 'Noor'];
 waitingCustomers[1]='Ali'
 waitingCustomers.push('Dana')
+console.log(waitingCustomers.length)
 let waitListLength = waitingCustomers.length
 let removedCustomer = waitingCustomers.pop()
 console.log(removedCustomer)
@@ -35,7 +38,7 @@ prices.forEach((element)=>{
         expansiveItemCount++
     }
 })
-console.log(`Total price ${totalPrice}`)
+console.log(`Total price: ${totalPrice}`)
 console.log(`Items costing 4 or more: ${expansiveItemCount}`)
 /////////////////////////////
 //exercise 5
@@ -57,7 +60,7 @@ const drink = {
 };
 drink.size='large'
 drink.price= drink.price+1
-drink.iasAvailable=true
+drink.isAvailable=true
 delete drink.temporaryCode
 console.log(drink)
 ///////////////////////
@@ -70,7 +73,7 @@ const order = {
   isPaid: true,
 };
 order.orderTotal = (order.price*order.quantity)
-console.log(`${order.customerName} ordered ${order.quantity} ${order.itemName} items`)
+console.log(`${order.customerName} ordered ${order.quantity} ${order.itemName} items.`)
 console.log(`Order total: ${order.orderTotal}`)
 if (order.isPaid){
     console.log("Ready to prepare")
@@ -126,7 +129,49 @@ studyGroup.members.forEach((element)=>{
         completedCount++
     }
     else{
-        console.log(`${element.name} needs to finish the homework`)
+        console.log(`${element.name} needs to finish the homework.`)
     }
 })
 console.log(`completed homework: ${completedCount}`)
+//////////////////////
+//exercise 11
+function calculateTotal(itemPrices){
+    let total=0
+    itemPrices.forEach((element)=>{
+        total=total+element
+        
+    })
+    return total
+}
+console.log(calculateTotal([2, 5, 3])); // 10
+console.log(calculateTotal([4, 4]));    // 8
+console.log(calculateTotal([7]));       // 7
+console.log(calculateTotal([]));        // 0
+///////////////////////////////////////////////////
+//exercise 12
+const bill = {
+  customerName: 'Noor',
+  items: [
+    { name: 'Tea', price: 2, quantity: 2 },
+    { name: 'Sandwich', price: 4, quantity: 1 },
+    { name: 'Cookie', price: 1, quantity: 3 },
+  ],
+  getTotal() {
+    let total=0
+    bill.items.forEach((element)=>{
+        total= total+(element.price*element.quantity)
+    })
+    return total  
+  }
+}
+console.log(bill.getTotal()); // 11
+bill.items.push({
+  name: 'Water',
+  price: 1,
+  quantity: 2,
+});
+
+console.log(bill.getTotal()); // 13
+
+
+
