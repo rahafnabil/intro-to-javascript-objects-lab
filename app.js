@@ -67,6 +67,66 @@ const order = {
   itemName: 'Sandwich',
   price: 4,
   quantity: 3,
-  isPaid: false,
+  isPaid: true,
 };
-let orderTotalPrice = (order.price*order.quantity)
+order.orderTotal = (order.price*order.quantity)
+console.log(`${order.customerName} ordered ${order.quantity} ${order.itemName} items`)
+console.log(`Order total: ${order.orderTotal}`)
+if (order.isPaid){
+    console.log("Ready to prepare")
+}
+else{
+    console.log('Waiting for payment')
+}
+///////////////////////////
+//exercise 8
+const studySession = {
+  title: 'JavaScript Practice',
+  room: 'Lab 2',
+  topics: ['Variables', 'Arrays'],
+};
+console.log(studySession.topics[0])
+studySession.topics.push('Objects')
+console.log(studySession.topics.length)
+studySession.topics.forEach((element)=>{
+    console.log(element)
+})
+studySession.room='Lab 3'
+console.log(`${studySession.title} will take place in ${studySession.room}.`)
+console.log(studySession.topics)
+////////////////////
+//exercise 9
+const products = [
+  { name: 'Tea', price: 2 },
+  { name: 'Sandwich', price: 4 },
+  { name: 'Cookie', price: 1 },
+];
+console.log(products[1].name)
+products[1].price=5
+products.push({name: 'juice', price:3})
+products.forEach((element,index)=>{
+    //displaying two ways the info within the array of objects can be called, (BD)
+    console.log(`${products[index].name} costs ${element.price} BD.`)
+})
+///////////////////////////////////////
+//exercise 10
+const studyGroup = {
+  name: 'JavaScript Crew',
+  members: [
+    { name: 'Aisha', completedHomework: true },
+    { name: 'Omar', completedHomework: false },
+    { name: 'Noor', completedHomework: true },
+  ],
+};
+console.log(studyGroup.name)
+console.log(studyGroup.members.length)
+let completedCount=0
+studyGroup.members.forEach((element)=>{
+    if(element.completedHomework){
+        completedCount++
+    }
+    else{
+        console.log(`${element.name} needs to finish the homework`)
+    }
+})
+console.log(`completed homework: ${completedCount}`)
